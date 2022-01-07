@@ -1,0 +1,122 @@
+// Fonts
+  
+@import url('https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&display=swap')
+
+@mixin font
+  font-family: 'Cantarell'
+  font-weight: 400
+
+// theme colors
+  
+$blue: blue
+$grey: #313131
+$orange: orange
+$highlighted: #14B3AB
+$load: #C9C9C9
+// General
+*
+  box-sizing: border-box !important
+a 
+  text-decoration: none
+  color: unset
+
+body 
+  margin: unset
+  width: 100vw
+  min-height: 100vh
+  overflow-x: hidden
+  overflow-y: hidden
+
+
+  
+
+  // navbar
+
+
+.navbar
+  position: fixed
+  width: 100vw
+  display: flex
+  flex-wrap: nowrap
+  justify-content: center 
+  height: 50px
+  &:hover
+    color: $grey
+
+  .nav-link
+    @include font
+    color: $grey
+    position: relative
+    display: inline-block
+    height: 50px
+    width: 100px
+    text-align: center
+    line-height: 60px
+    &:hover
+      transition: 0.5s
+
+  .highlighted
+    color: $highlighted
+
+  #tracker
+    transition: 0.5s
+    position: absolute
+    display: block
+    top: 0
+    height: 10px !important
+    width: 100% !important
+    background-color: $highlighted
+    z-index: 100
+
+  #track
+    position: absolute
+    background-color: $grey
+    height: 10px
+    width: 100vw
+
+@media (max-width: 520px)
+  .navbar 
+    position: absolute
+    top: 0
+    font-size: 14px
+    .nav-link
+      min-width: 60px
+      margin-top: 8px
+      width: 100vw
+      line-height: 50px
+      height: 50px
+
+    #tracker
+      height: 8px !important
+      margin-top: -8px
+
+    #track 
+      height: 8px
+
+
+// Section
+.container  
+  scroll-snap-type: y mandatory
+  overflow-y: scroll
+  overflow-x: hidden
+  height: 100vh
+
+section 
+  scroll-snap-align: start
+  height: 100vh
+  width: 100vw
+  background-color: lightgrey
+  
+#intro
+  background-color: #91D6D6
+#about
+  background-color: #D6D591
+#projects
+  background-color: #D6BA91
+#interests
+  background-color: #A7D691
+#contact
+  background-color: #A391D6
+
+
+
