@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route exact path='/' element={<Home/>} />
+        <Route exact path='/Portfolio' element={<Home/>} />
       </Routes>
     </BrowserRouter>
   )
