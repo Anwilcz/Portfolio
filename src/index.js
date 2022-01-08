@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import 'https://kit.fontawesome.com/a1cef036d6.js';
-import 'https://code.iconify.design/2/2.1.0/iconify.min.js';
+// import 'https://code.iconify.design/2/2.1.0/iconify.min.js';
 
 
 ReactDOM.render(

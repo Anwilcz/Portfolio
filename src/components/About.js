@@ -46,7 +46,7 @@ const About = () => {
               </div>
             </div>
             <div className='column half'>
-              <h4>Deployment</h4>
+              <h4>Platforms</h4>
               <div className='grid'>
                 <div className='icon-tile'><i class='iconify' data-icon='cib:heroku' /><p className='icon-description'>Heroku</p></div>
                 <div className='icon-tile'><i class='iconify' data-icon='cib:netlify' /><p className='icon-description'>Netlify</p></div>
