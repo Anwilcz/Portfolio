@@ -1,0 +1,299 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;600;700&display=swap')
+
+@mixin font
+  font-family: 'Cantarell'
+  font-weight: 400
+
+@mixin headers
+  font-family: 'Cabin'
+  font-weight: 700
+
+// theme colors
+  
+$blue: blue
+$grey: #ffffffff
+$medium-grey: #5C5C5C
+$dark-grey: #383838
+$orange: orange
+$highlighted: #3E909B
+$load: #C9C9C9
+// General
+*
+  font-family: 'Cantarell'
+  font-weight: 400
+  box-sizing: border-box !important
+a 
+  text-decoration: none
+  color: unset
+
+
+
+body 
+  margin: unset
+  width: 100vw
+  overflow-x: hidden
+  overflow-y: hidden
+
+// Text
+
+h2
+  @include headers
+  color: $highlighted
+  font-size: 28px
+  line-height: 28px
+  margin: 15px 0
+
+h3
+  @include headers
+  color: $dark-grey
+  width: 100%
+  display: block
+  font-size: 18px
+  padding: 0 0 8px 10px
+  margin-top: 10px
+  margin-bottom: 0
+  border-bottom: 1px solid #D1D1D1
+  
+
+h4
+  @include headers
+  color: $medium-grey
+  margin-top: 9px
+
+
+.description
+  color: $medium-grey
+  font-size: 12px
+  text-align: justify
+  
+
+  // navbar
+
+
+.navbar
+  position: fixed
+  width: 100vw
+  display: flex
+  flex-wrap: nowrap
+  justify-content: center 
+  height: 50px
+  &:hover
+    color: $grey
+
+  .nav-link
+    @include font
+    color: $grey
+    position: relative
+    display: inline-block
+    height: 50px
+    width: 100px
+    text-align: center
+    line-height: 60px
+    &:hover
+      transition: 0.5s
+
+  .highlighted
+    color: $highlighted
+
+  #tracker
+    transition: 0.5s
+    position: absolute
+    display: block
+    top: 0
+    height: 10px !important
+    width: 100% !important
+    background-color: $highlighted
+    z-index: 100
+
+  #track
+    position: absolute
+    background-color: $grey
+    height: 10px
+    width: 100vw
+
+
+// Section
+.container
+  border-bottom: 10px solid white
+  margin-top: 10px solid white
+  scroll-snap-type: y mandatory
+  overflow-y: scroll
+  overflow-x: hidden
+  height: 100vh
+
+section 
+  display: flex
+  justify-content: center
+  align-items: center
+  overflow: hidden
+  border-left: 10px solid white
+  border-right: 10px solid white
+  scroll-snap-align: start
+  height: 100vh
+  width: 100vw
+  
+#intro
+  background-color: #D1D1D1
+#about
+  background-color: #D1D1D1
+#projects
+  background-color: #D1D1D1
+#interests
+  background-color: #D1D1D1
+#contact
+  background-color: #D1D1D1
+
+.wrapper
+  justify-content: center
+  margin: 60px 0px
+  display: flex
+  flex-direction: column
+  max-width: 900px
+  width: 80vw
+  height: calc(100% - 140px)
+// Flex
+.column
+  display: flex
+  flex-direction: column
+
+.column.half
+  padding: 0 10px
+
+.row
+  display: flex
+
+article
+  width: 100%
+  padding: 0px 15px
+
+@media (max-width: 920px)
+  h4
+    font-size: 0px
+    border-bottom: 1px solid #D1D1D1
+    margin-bottom: 5px
+    margin-top: 0px
+  h4.first
+    border: none
+  article.about
+    width: 100% !important
+  .avatar
+    display: none !important
+  .row
+    flex-direction: column
+  .icon-tile
+    width: 30px !important
+    margin-bottom: 5px
+    font-size: 25px !important
+    .icon-description
+      display: none
+  .column.half, article.about
+    padding: 0px
+
+  .wrapper
+    padding: 5px
+
+
+// Scrollbar
+
+::-webkit-scrollbar 
+  width: 10px
+
+
+// Track
+::-webkit-scrollbar-track 
+  background: white
+
+ 
+// Bar
+::-webkit-scrollbar-thumb 
+  background: #65B6C1
+  &:hover 
+    background: $highlighted
+
+@media (max-width: 520px)
+  .navbar 
+    width: calc(100vw - 16px)
+    margin: 0px 8px
+    position: absolute
+    top: 0
+    font-size: 14px
+    .nav-link
+      min-width: 60px
+      margin-top: 8px
+      width: 100vw
+      line-height: 50px
+      height: 50px
+
+    #tracker
+      height: 8px !important
+      margin-top: -8px
+
+    #track 
+      height: 8px
+
+  .container
+    border-bottom: 8px solid white
+    margin-top: 8px solid white
+
+  section
+    border-left: 8px solid white
+    border-right: 8px solid white
+
+  .wrapper
+    margin: 60px 0px
+    display: flex
+    flex-direction: column
+    width: 85vw
+
+  ::-webkit-scrollbar 
+    width: 0px
+
+
+// Avatar
+
+.avatar
+  margin: 15px 15px 30px 0 
+  border-radius: 4px
+  // border: 1px solid $highlighted
+  box-shadow: 0px 2px 5px 0px #61616152
+  width: 150px
+  height: 150px
+  background: linear-gradient( transparent , #61616152), url("../assets/anna.png") 
+  background-size: cover
+  background-position: center
+
+article.about
+  width: calc(100% - 165px)
+
+article.skills
+  padding: 10px 15px
+  border-radius: 3px
+  background-color: #FFF9F3
+
+// Skills icons
+.grid
+  display: flex
+  flex-wrap: wrap
+  align-items: flex-start
+  justify-content: left
+
+.icon-tile
+  color: $medium-grey
+  width: 60px
+  font-size: 18px
+  display: inline-flex
+  flex-direction: column
+  align-items: center
+  transition: 0.5s
+  .icon-description
+    text-align: center
+    line-height: 11px
+    font-size: 11px
+  &:hover
+    color: $highlighted
+    
+
+
+
