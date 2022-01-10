@@ -13,11 +13,23 @@
 // theme colors
   
 $blue: blue
-$grey: #ffffffff
+$white: white
+$grey-medium: #d8d8d8
+$grey-light: #d1d1d1
+$grey-extralight: #f9f7f6
 $medium-grey: #5C5C5C
 $dark-grey: #383838
 $orange: orange
-$highlighted: #3E909B
+// $teal-extralight: #98ced6
+$teal-extralight: #9ac5ca
+$teal-light: #65B1BC
+$teal-medium: #00a2ad
+$teal-dark: #006e86
+$teal-extradark: #014656
+$yellow-medium: #fdd65d
+$yellow-light: #ffffff
+$yellow-extralight: #ffffff
+
 $load: #C9C9C9
 // General
 *
@@ -33,14 +45,15 @@ a
 body 
   margin: unset
   width: 100vw
+  min-width: 340px
   overflow-x: hidden
   overflow-y: hidden
 
 // Text
-
+  
 h2
   @include headers
-  color: $highlighted
+  color: $teal-dark
   font-size: 28px
   line-height: 28px
   margin: 15px 0
@@ -80,12 +93,13 @@ h4
   flex-wrap: nowrap
   justify-content: center 
   height: 50px
+  z-index: 100
   &:hover
-    color: $grey
+    color: $white
 
   .nav-link
     @include font
-    color: $grey
+    color: $white
     position: relative
     display: inline-block
     height: 50px
@@ -96,7 +110,7 @@ h4
       transition: 0.5s
 
   .highlighted
-    color: $highlighted
+    color: $teal-dark
 
   #tracker
     transition: 0.5s
@@ -105,12 +119,12 @@ h4
     top: 0
     height: 10px !important
     width: 100% !important
-    background-color: $highlighted
+    background-color: $teal-dark
     z-index: 100
 
   #track
     position: absolute
-    background-color: $grey
+    background-color: $white
     height: 10px
     width: 100vw
 
@@ -126,8 +140,8 @@ h4
 
 section 
   display: flex
+  padding-top: 55px
   justify-content: center
-  align-items: center
   overflow: hidden
   border-left: 10px solid white
   border-right: 10px solid white
@@ -136,15 +150,27 @@ section
   width: 100vw
   
 #intro
+  background: linear-gradient($grey-light 50%, #9ac5ca  51%) !important
+
+#about, .mask-about
+  background-color: $grey-light
+  position: relative
+#projects, .mask-projects
+  background-color: $teal-extralight
+  position: relative
+#interests, .mask-interests
   background-color: #D1D1D1
-#about
-  background-color: #D1D1D1
-#projects
-  background-color: #D1D1D1
-#interests
-  background-color: #D1D1D1
-#contact
-  background-color: #D1D1D1
+  position: relative
+#contact, .mask-contact
+  background-color: $teal-extralight
+  position: relative
+
+.mask
+  position: absolute
+  top: 0
+  width: calc(100% - 20px)
+  height: 55px
+  z-index: 50
 
 .wrapper
   justify-content: center
@@ -179,7 +205,7 @@ article
     border: none
   article.about
     width: 100% !important
-  .avatar
+  .avatar, .project-image
     display: none !important
   .row
     flex-direction: column
@@ -211,7 +237,7 @@ article
 ::-webkit-scrollbar-thumb 
   background: #65B6C1
   &:hover 
-    background: $highlighted
+    background: $teal-dark
 
 @media (max-width: 520px)
   .navbar 
@@ -239,6 +265,7 @@ article
     margin-top: 8px solid white
 
   section
+    position: relative
     border-left: 8px solid white
     border-right: 8px solid white
 
@@ -256,8 +283,8 @@ article
 
 .avatar
   margin: 15px 15px 30px 0 
-  border-radius: 4px
-  // border: 1px solid $highlighted
+  border-radius: 3px
+  // border: 1px solid $teal-dark
   box-shadow: 0px 2px 5px 0px #61616152
   width: 150px
   height: 150px
@@ -271,7 +298,7 @@ article.about
 article.skills
   padding: 10px 15px
   border-radius: 3px
-  background-color: #FFF9F3
+  background-color: $yellow-extralight
 
 // Skills icons
 .grid
@@ -293,7 +320,297 @@ article.skills
     line-height: 9px
     font-size: 9px
   &:hover
-    color: $highlighted
+    color: $teal-dark
+
+
+// Intro
+
+.background
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  margin-top: -55px
+  width: 100%
+  height: calc(100% + 55px)
+  overflow: hidden
+
+  svg
+    position: absolute
+    bottom: 50vh
+    transform: translateY(55%)
+    width: 100vw !important
+    // height: 100vh !important
+  svg:first-of-type
+    transform: translateY(45%)
+      
+
+.shape
+  position: absolute
+
+
+
+.shape:nth-of-type(1)
+  bottom: 50vh
+  right: 50vw
+  min-width: 300px
+  max-width: 350px
+  width: 25% 
+  aspect-ratio: 1
+  border-radius: 67% 33% 37% 63% / 60% 40% 60% 40%
+  background-color: $yellow-extralight
+  transform: translate(-25%, -5%) rotate(50deg)
+  display: flex
+  align-items: center
+  justify-content: center
+  animation: rotate 5s infinite
+
+
+
+
+@media (max-width: 900px)
+  .shape:nth-of-type(1)
+      transform: translate(50%, 50%) rotate(50deg) scale(0.8, 0.8) !important
+  .navigate
+    display: none !important
+
+.title
+  width: 300px
+  z-index: 50
+  border-radius: 3px
+  overflow: hidden 
+  transform: rotate(-50deg)
+  margin-left: 40px
+h1
+  @include headers
+  color: $teal-extradark
+  padding: 10px
+  font-size: 32px
+  line-height: 32px
+  margin: 0 0 0px 0
+  white-space: nowrap 
+  span  
+    color: $teal-dark
+
+p.job-title
+  width: 260px
+  border-radius: 3px
+  font-size: 16px
+  color: $teal-extradark
+  padding: 0px 20px
+  margin: 0 0 0 10px
+  // background-color: $teal-dark 
+
+.navigate
+  display: flex
+  flex-direction: column
+  align-items: center
+  right: 0
+  bottom: 0
+  width: 55vw
+  height: 35vh
+  position: absolute
+  text-align: center
+  h2
+    font-size: 20px
+  p
+    font-size: 14px
+    color: $white
+  .arrow
+    margin-top: 20px
+    width: 0
+    height: 0
+    border-left: 10px solid transparent
+    border-right: 10px solid transparent
+    border-top: 20px solid $teal-dark
+  &:hover
+    .arrow
+      animation: animate-arrow 0.5s infinite
+
+  @keyframes animate-arrow 
+    0%, 100%
+      border-left: 10px solid transparent
+      border-right: 10px solid transparent
+      border-top: 20px solid $teal-dark
+    60%
+      margin-top: 15px
+      border-left: 8px solid transparent
+      border-right: 8px solid transparent
+      border-top: 15px solid $teal-dark
+    
+// Projects
+.project > .column:nth-of-type(2)
+  width: 100% !important
+  background-color: $yellow-extralight
+  padding: 10px
+  border-radius: 3px
+.project
+  position: relative
+  margin-bottom: 15px
+  h3
+    font-size: 15px
+    margin-top: 0px
+    border-bottom: 1px solid $medium-grey
+    width: 100% !important
+    padding-left: 0
+
+.technology-used.skills
+  padding: 0px
+  margin-top: -8px
+  background-color: transparent
+  h4
+    font-size: 14px
+    margin-top: 0
+  p .description
+    margin-bottom: 3px !important
+.technology-used > .grid
+  .icon-tile
+    width: 30px
+    font-size: 16px !important
+    .icon-description
+      display: none
+
+.links
+  color: $dark-grey
+  font-size: 14px
+  line-height: 20px
+  position: absolute
+  top: 8px
+  right: 15px
+  a, i
+    &:hover
+      color: $teal-dark
+
+@media (max-width: 920px)
+  .links
+    font-size: 14px !important
+    position: unset
+    margin-top: 3px
+  .project
+    h3
+      padding-left: 0px
+  .technology-used
+    display: none
+  .project > .column > h3 
+    font-size: 16px
+  .project > .column > .description
+    margin: 0
+  
+
+.project-image
+  width: 200px
+  margin-right: 15px
+  border-radius: 3px
+  height: 100%
+  background-color: $yellow-extralight
+  background-size: contain !important
+  background-position: center !important
+  background-repeat: no-repeat !important
+  box-shadow: 0px 2px 5px 0px #61616152
+  
+
+.project-image.project1
+  background: url("../assets/project1.png") , #00182e
+
+.project-image.project2
+  background: url("../assets/project2.png") , #ffffff
+
+.project-image.project3
+  background: url("../assets/project3.png") , #f1f1f1
+
+.project-image.project4
+  background: url("../assets/project4.png") , #001550
+
+
+// Contact 
+
+.shape.contact
+  top: 50vh
+  left: 50vw
+  transform: translate(-56%, -50%) rotate(50deg) !important
+  text-align: left
+
+@media (max-width: 920px)
+  .shape.contact
+    width: 200px !important
+    top: 50vh
+    left: 50vw
+    transform: translate(-56%, -50%) rotate(50deg) !important
+    
+.title.contact
+  transform: rotate(0) translate(-5%, 0%)!important 
+  margin-left: 150px
+  margin-top: 25px
+  h2
+    margin-left: 15px
+  a
+    color: $dark-grey
+    display: block
+    font-size: 14px
+    &:hover
+      color: $teal-dark
+  a > svg
+    width: auto !important
+    fill: blue !important
+    position: relative
+    top: -4px
+    left: 0px
+    margin-right: 8px
+
+  // Interests
+
+article.interests
+ padding: 0px
+
+strong
+  font-weight: 600
+
+.interests
+  display: flex
+  
+  
+.image-interests
+  background-color: blue 
+  width: calc(25% - 11px)
+  aspect-ratio: 0.85
+  margin-right: 15px
+  background-size: cover !important
+  background-position: center !important
+  border-radius: 3px
+  background-color: $white
+  background-size: 100% !important
+  background-position: center !important
+  background-repeat: no-repeat !important
+  box-shadow: 0px 2px 5px 0px #61616152
+.image-interests:nth-of-type(4)
+  margin-right: 0px !important
+
+.image-interests:nth-of-type(1)
+  background: url('../assets/drawing1.png')
+
+.image-interests:nth-of-type(2)
+  background: url('../assets/drawing2.png')
+
+.image-interests:nth-of-type(3)
+  background: url('../assets/chair1.png')
+
+.image-interests:nth-of-type(4)
+  background: url('../assets/chair2.png')
+
+@media (max-width: 920px)
+  .interests
+    flex-wrap: wrap
+  
+  .image-interests
+    width: calc(50% - 5px)
+    margin-right: 10px
+    margin-bottom: 10px
+
+  .image-interests:nth-of-type(2), .image-interests:nth-of-type(4)
+    margin-right:0px
+
+
     
 
 
